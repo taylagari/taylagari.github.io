@@ -1,50 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visa Assistant | Taylagari</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css"/>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#2563eb',
-            secondary: '#1e40af',
-            success: '#10b981',
-            warning: '#f59e0b'
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylagari - Book Air Tickets, Hotels, Packages Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#3b82f6',
+                        accent: '#f97316',
+                        'sky-light': '#e0f2fe',
+                        'sky-dark': '#0ea5e9'
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <style>
-    .visa-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border-left: 4px solid #3b82f6;
-    }
-    .visa-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-    }
-    .visa-type-badge {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 9999px;
-    }
-  </style>
+          
+    </script>
+    <style>
+        .slider {
+            transition: transform 0.5s ease-in-out;
+        }
+        .route-card, .hotel-card, .destination-card {
+            transition: all 0.3s ease;
+        }
+        .route-card:hover, .hotel-card:hover, .destination-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .search-tab {
+            transition: all 0.2s ease;
+        }
+        .search-tab.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+        }
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-  <!-- Header -->
+<body class="font-sans bg-gray-50">
+    
+    <!-- Header -->
     <header class="bg-blue-200 shadow-md fixed w-full z-50 rounded-b-lg">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <a href="/" class="flex items-center">
+              <a href="/" class="flex items-center">
                 <img src="./public/images/logo/icon.png" alt="Taylagari Logo" class="h-10 w-10 mr-2">
                 <h1 class="text-3xl font-bold text-gray-700 ">Taylagari</h1>
               </a>
@@ -344,313 +373,491 @@
             <a href="/media.html" class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300">Sign In</a>
         </div>
     </header>
-  <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-blue-700 to-indigo-900 text-white pt-32 py-16 px-4">
-    <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Your Global Visa Assistant</h1>
-      <p class="text-lg max-w-3xl mx-auto opacity-90 mb-8">
-        Fast, reliable visa services for 100+ countries. Tourist, Business, Work, Transit & more.
-      </p>
-      
-      <!-- Search & Filters -->
-      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-4xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <input 
-            type="text" 
-            id="searchInput"
-            placeholder="Search country or visa type..." 
-            class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          />
-          <select id="visaTypeFilter" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <option value="all">All Visa Types</option>
-            <option value="tourist">Tourist Visa</option>
-            <option value="business">Business Visa</option>
-            <option value="work">Work Visa</option>
-            <option value="transit">Transit Visa</option>
-            <option value="visit">Visit Visa</option>
-          </select>
-          <select id="countryFilter" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
-            <option value="all">All Countries</option>
-            <option value="usa">🇺🇸 United States</option>
-            <option value="uk">🇬🇧 United Kingdom</option>
-            <option value="canada">🇨🇦 Canada</option>
-            <option value="australia">🇦🇺 Australia</option>
-            <option value="schengen">🇪🇺 Schengen Area</option>
-            <option value="uae">🇦🇪 UAE</option>
-            <option class="fi fi-jp" value="japan">🇯🇵 Japan</option>
-            <option value="india">🇮🇳 India</option>
-          </select>
-        </div>
+ 
+    <!-- Try Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white min-h-[520px] flex items-center py-8 px-4 bg-hero-pattern bg-cover bg-center">
+    <div class="max-w-6xl mx-auto w-full">
+      <!-- Hero Headline -->
+      <div class="text-center mb-8">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
+          Find & Book Cheap Flights
+        </h1>
+        <p class="text-sm md:text-base max-w-2xl mx-auto opacity-90">
+          Compare prices across 700+ airlines and online travel agencies. No hidden fees. Instant confirmation.
+        </p>
+      </div>
+
+      <!-- Flight Search Form Card -->
+      <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3 p-4 md:p-6">
+          <!-- Trip Type Tabs -->
+          <div class="lg:col-span-6 flex justify-center space-x-2 mb-3 md:mb-0">
+            <button type="button" class="px-3 py-2 text-sm font-medium rounded-lg bg-blue-100 text-blue-700 hover:bg-blue-200 transition">Round Trip</button>
+            <button type="button" class="px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition">One Way</button>
+            <button type="button" class="px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100 transition">Multi-City</button>
+          </div>
+
+          <!-- From -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-gray-700">From</label>
+            <div class="relative">
+              <i class="fas fa-plane-departure absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+              <input
+                type="text"
+                placeholder="City or airport"
+                class="w-full pl-10 pr-4 py-3 rounded-lg text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <!-- To -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-gray-700">To</label>
+            <div class="relative">
+              <i class="fas fa-plane-arrival absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+              <input
+                type="text"
+                placeholder="City or airport"
+                class="w-full pl-10 pr-4 py-3  text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <!-- Departure -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-gray-700">Departure</label>
+            <input
+              type="date"
+              class="w-full px-4 py-3  text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Return -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-gray-700">Return</label>
+            <input
+              type="date"
+              class="w-full px-4 py-3 text-black rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            />
+          </div>
+
+          <!-- Passengers -->
+          <div class="space-y-1">
+            <label class="block text-xs font-semibold text-gray-700">Passengers</label>
+            <select class="w-full px-4 py-3 rounded-lg border text-black border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+              <option>1 Passenger</option>
+              <option>2 Passengers</option>
+              <option>3 Passengers</option>
+              <option>4+ Passengers</option>
+            </select>
+          </div>
+
+          <!-- Search Button -->
+          <div class="flex items-end">
+            <button
+              type="submit"
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-200 flex items-center justify-center"
+            >
+              <i class="fas fa-search mr-2"></i>
+              Search Flights
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Main Content -->
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <div class="mb-8">
-      <h2 class="text-2xl font-bold text-gray-800">Visa Services by Country & Type</h2>
-      <p class="text-gray-600 mt-2">24 visa services available</p>
-    </div>
+   
 
-    <!-- Visa Services Grid -->
-    <div id="visaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- USA Tourist Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="usa" data-visa-type="tourist">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-blue-100 text-blue-800 font-medium">Tourist Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇺🇸 United States</h3>
-            <p class="text-gray-600 text-sm">B-2 Tourist Visa</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">3-4 Weeks</div>
-          </div>
+    <!-- Exclusive Offers Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Exclusive Offers</h2>
+            
+            <div class="relative overflow-hidden h-64 rounded-lg shadow-md">
+                <div id="offers-slider" class="slider h-full flex">
+                    <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                        <div class="h-full flex items-center justify-center bg-black bg-opacity-40 p-8">
+                            <div class="text-white text-center">
+                                <h3 class="text-2xl font-bold mb-2">Special Summer Deal</h3>
+                                <p class="text-xl mb-4">Get 25% off on all international flights</p>
+                                <button class="bg-accent hover:bg-orange-600 px-6 py-2 rounded-lg font-semibold">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                        <div class="h-full flex items-center justify-center bg-black bg-opacity-40 p-8">
+                            <div class="text-white text-center">
+                                <h3 class="text-2xl font-bold mb-2">Hotel Discounts</h3>
+                                <p class="text-xl mb-4">Enjoy up to 30% off on luxury hotels</p>
+                                <button class="bg-accent hover:bg-orange-600 px-6 py-2 rounded-lg font-semibold">Find Hotels</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="min-w-full h-full bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80')">
+                        <div class="h-full flex items-center justify-center bg-black bg-opacity-40 p-8">
+                            <div class="text-white text-center">
+                                <h3 class="text-2xl font-bold mb-2">Holiday Packages</h3>
+                                <p class="text-xl mb-4">All-inclusive deals starting at $499</p>
+                                <button class="bg-accent hover:bg-orange-600 px-6 py-2 rounded-lg font-semibold">View Packages</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="offers-prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-primary w-10 h-10 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="offers-next" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-80 text-primary w-10 h-10 rounded-full flex items-center justify-center">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                    <button class="offers-indicator w-3 h-3 rounded-full bg-white bg-opacity-50"></button>
+                    <button class="offers-indicator w-3 h-3 rounded-full bg-white bg-opacity-50"></button>
+                    <button class="offers-indicator w-3 h-3 rounded-full bg-white bg-opacity-50"></button>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Consular Fee: $185</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-file-alt text-blue-600 mr-2"></i>
-            <span>DS-160 Form Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-calendar-check text-purple-600 mr-2"></i>
-            <span>Interview Required</span>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$249</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
+    </section>
 
-      <!-- UK Business Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="uk" data-visa-type="business">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-purple-100 text-purple-800 font-medium">Business Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇬🇧 United Kingdom</h3>
-            <p class="text-gray-600 text-sm">Standard Visitor (Business)</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">15 Working Days</div>
-          </div>
+    <!-- Explore Bangladesh -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Explore Bangladesh</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Prepare to experience Bangladesh's rich culture and explore the majestic beauties of Cox's Bazar, Sylhet, Bandarban, Sajek Valley, Rangamati etc. Plan your trip now!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Cox's Bazar</h3>
+                        <p class="text-gray-600 mb-4">World's longest natural sea beach with stunning sunsets</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 4,599</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Sylhet</h3>
+                        <p class="text-gray-600 mb-4">Land of tea gardens and spiritual shrines</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 4,199</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Explore</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Chattogram</h3>
+                        <p class="text-gray-600 mb-4">Port city with beautiful hills and beaches</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 3,299</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Explore</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Visa Fee: £115</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-file-alt text-blue-600 mr-2"></i>
-            <span>Invitation Letter Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-shield-alt text-green-600 mr-2"></i>
-            <span>Biometrics Required</span>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$199</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
+    </section>
 
-      <!-- Canada Work Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="canada" data-visa-type="work">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-green-100 text-green-800 font-medium">Work Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇨🇦 Canada</h3>
-            <p class="text-gray-600 text-sm">Work Permit (LMIA)</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">8-12 Weeks</div>
-          </div>
+    <!-- Top Airlines -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4">Search Top Airlines</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Taylagari's user-friendly platform connects you to top airlines instantly. Enjoy a comfortable and hassle-free journey on any destination and get tickets of top airlines easily.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32">
+                    <img src="https://placehold.co/160x80/3b82f6/FFFFFF?text=Biman+Bangladesh" alt="Biman Bangladesh Airlines" class="max-h-12">
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32">
+                    <img src="https://placehold.co/160x80/1e40af/FFFFFF?text=US-Bangla" alt="US-Bangla Airlines" class="max-h-12">
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32">
+                    <img src="https://placehold.co/160x80/3b82f6/FFFFFF?text=NOVOAIR" alt="NOVOAIR" class="max-h-12">
+                </div>
+                <div class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32">
+                    <img src="https://placehold.co/160x80/1e40af/FFFFFF?text=Airline+4" alt="Airline" class="max-h-12">
+                </div>
+            </div>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Work Permit Fee: CAD $155</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-briefcase text-indigo-600 mr-2"></i>
-            <span>Job Offer Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-graduation-cap text-yellow-600 mr-2"></i>
-            <span>Education Credential Assessment</span>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$399</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
+    </section>
 
-      <!-- Schengen Tourist Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="schengen" data-visa-type="tourist">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-blue-100 text-blue-800 font-medium">Tourist Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇪🇺 Schengen Area</h3>
-            <p class="text-gray-600 text-sm">Short-Stay Schengen Visa</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">15 Calendar Days</div>
-          </div>
+    <!-- Popular Destinations -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Most Popular Destinations</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Expand your travel horizons with new facets! Explore the world by choosing your ideal travel destinations in Asia, Europe, America, Australia and more with Taylagari.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Singapore</h3>
+                        <p class="text-gray-600 mb-4">3 Days, 2 Nights</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 31,250</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Dubai</h3>
+                        <p class="text-gray-600 mb-4">4 Days, 3 Nights</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 42,600</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Kathmandu</h3>
+                        <p class="text-gray-600 mb-4">5 Days, 4 Nights</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 24,400</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Riyadh</h3>
+                        <p class="text-gray-600 mb-4">6 Days, 5 Nights</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">From ৳ 47,200</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Visa Fee: €80</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-plane mr-2 text-red-600"></i>
-            <span>Round-Trip Flight Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-hotel text-orange-600 mr-2"></i>
-            <span>Hotel Booking Required</span>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$179</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
+    </section>
 
-      <!-- UAE Visit Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="uae" data-visa-type="visit">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-amber-100 text-amber-800 font-medium">Visit Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇦🇪 United Arab Emirates</h3>
-            <p class="text-gray-600 text-sm">90-Day Visit Visa</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">3-5 Working Days</div>
-          </div>
+    <!-- Hotels Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8">Best Hotels for Your Next Trip</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Luxurious or budget-friendly hotels, villas or resorts, browse accommodations at Taylagari that meet the need. Book Long-term or short-term accommodation from our hotel deals</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="hotel-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Sayeman Beach Resort</h3>
+                        <p class="text-gray-600 mb-4">Cox's Bazar, Bangladesh</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">$145 / night</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hotel-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Saagull Hotels Ltd.</h3>
+                        <p class="text-gray-600 mb-4">Dhaka, Bangladesh</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">$173 / night</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hotel-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Best Western Heritage</h3>
+                        <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">$178 / night</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hotel-card bg-white rounded-lg overflow-hidden shadow-md">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">Grand Sultan Tea Resort</h3>
+                        <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-primary font-bold">$172 / night</span>
+                            <button class="text-xs bg-primary text-white px-3 py-1 rounded">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Visa Fee: AED 1,500</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-id-card text-teal-600 mr-2"></i>
-            <span>Sponsor Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-file-medical text-pink-600 mr-2"></i>
-            <span>Medical Insurance Mandatory</span>
-          </div>
-        </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$299</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
+    </section>
 
-      <!-- Australia Transit Visa -->
-      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="australia" data-visa-type="transit">
-        <div class="flex justify-between items-start">
-          <div>
-            <span class="visa-type-badge bg-gray-100 text-gray-800 font-medium">Transit Visa</span>
-            <h3 class="font-bold text-lg text-gray-800 mt-2">🇦🇺 Australia</h3>
-            <p class="text-gray-600 text-sm">Transit Visa (Subclass 771)</p>
-          </div>
-          <div class="text-right">
-            <div class="text-sm text-gray-500">Processing Time</div>
-            <div class="font-medium text-gray-800">1-2 Days</div>
-          </div>
+    <!-- Botom Section -->
+    <section class="py-16" style="background-image: url('./public/images/cover/leon-macapagal-e_xjeaSMgpI-unsplash.jpg'); background-size: cover; background-position: center;">
+        <div class="container mx-auto px-4  items-center">
+                <h2 class="text-4xl text-white items-center  font-bold mb-6">Start Exploring the World with Us!</h2>  
+                <button class="bg-accent hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold text-white">Get Started</button>
         </div>
-        <div class="mt-4 space-y-2 text-sm text-gray-700">
-          <div class="flex items-center">
-            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
-            <span>Visa Fee: AUD $0 (Free)</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-plane mr-2 text-blue-600"></i>
-            <span>Onward Ticket Required</span>
-          </div>
-          <div class="flex items-center">
-            <i class="fas fa-clock text-purple-600 mr-2"></i>
-            <span>Max Stay: 72 Hours</span>
-          </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Explore</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Terms & Conditions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hotel Sitemap</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Medical Tourism</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Flight</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Hotel</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Holiday</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Visa</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Useful Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">Travel Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Travel Advisory</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Visa Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Visa Application</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Promotions</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white">News</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">Promotions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">VAS</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">ST Pay</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white">VISA</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-6 md:mb-0">
+                        <h2 class="text-2xl font-bold text-white">Tayla<span class="text-blue-400">gari</span></h2>
+                        <p class="text-gray-400 mt-2">Your trusted travel partner</p>
+                    </div>
+                    
+                    <div class="flex space-x-4 mb-6 md:mb-0">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in text-xl"></i></a>
+                    </div>
+                    
+                    <div class="text-center md:text-right">
+                        <p class="text-gray-400">We accept</p>
+                        <div class="flex justify-center md:justify-end space-x-2 mt-2">
+                            <i class="fab fa-cc-visa text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-mastercard text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-amex text-2xl text-gray-400"></i>
+                            <i class="fab fa-cc-paypal text-2xl text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center text-gray-400 text-sm">
+                    <p class="mt-4">Copyright © 2025. Taylagari. All rights reserved.</p>
+                </div>
+            </div>
         </div>
-        <div class="mt-5 flex justify-between items-center">
-          <div class="text-xl font-bold text-gray-800">$49</div>
-          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-            Apply Now
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- JavaScript for Filtering & Interactivity -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const visaCards = document.querySelectorAll('.visa-card');
-      const searchInput = document.getElementById('searchInput');
-      const visaTypeFilter = document.getElementById('visaTypeFilter');
-      const countryFilter = document.getElementById('countryFilter');
-
-      // Filter function
-      const applyFilters = () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        const visaType = visaTypeFilter.value;
-        const country = countryFilter.value;
-
-        visaCards.forEach(card => {
-          const matchesSearch = 
-            card.querySelector('h3').textContent.toLowerCase().includes(searchTerm) ||
-            card.querySelector('.text-gray-600').textContent.toLowerCase().includes(searchTerm) ||
-            card.querySelector('.visa-type-badge').textContent.toLowerCase().includes(searchTerm);
-          
-          const matchesVisaType = visaType === 'all' || card.dataset.visaType === visaType;
-          const matchesCountry = country === 'all' || card.dataset.country === country;
-
-          if (matchesSearch && matchesVisaType && matchesCountry) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         });
-      };
 
-      // Event listeners
-      searchInput.addEventListener('input', applyFilters);
-      visaTypeFilter.addEventListener('change', applyFilters);
-      countryFilter.addEventListener('change', applyFilters);
-
-      // Apply Now button
-      document.querySelectorAll('.apply-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          const country = this.closest('.visa-card').querySelector('h3').textContent.trim();
-          const visaType = this.closest('.visa-card').querySelector('.visa-type-badge').textContent;
-          alert(`Starting application for:\n${visaType} - ${country}\n\n(Demo mode: Redirecting to form...)`);
+        // Search tabs
+        const searchTabs = document.querySelectorAll('.search-tab');
+        searchTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                searchTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
         });
-      });
-    });
-  </script>
+
+        // Offers slider functionality
+        const offersSlider = document.getElementById('offers-slider');
+        const offersSlides = document.querySelectorAll('#offers-slider > div');
+        const offersIndicators = document.querySelectorAll('.offers-indicator');
+        const offersPrevButton = document.getElementById('offers-prev');
+        const offersNextButton = document.getElementById('offers-next');
+        
+        let offersCurrentSlide = 0;
+        
+        function updateOffersSlider() {
+            offersSlider.style.transform = `translateX(-${offersCurrentSlide * 100}%)`;
+            
+            // Update indicators
+            offersIndicators.forEach((indicator, index) => {
+                if (index === offersCurrentSlide) {
+                    indicator.classList.add('bg-white');
+                    indicator.classList.remove('bg-opacity-50');
+                } else {
+                    indicator.classList.remove('bg-white');
+                    indicator.classList.add('bg-opacity-50');
+                }
+            });
+        }
+        
+        offersNextButton.addEventListener('click', () => {
+            offersCurrentSlide = (offersCurrentSlide + 1) % offersSlides.length;
+            updateOffersSlider();
+        });
+        
+        offersPrevButton.addEventListener('click', () => {
+            offersCurrentSlide = (offersCurrentSlide - 1 + offersSlides.length) % offersSlides.length;
+            updateOffersSlider();
+        });
+        
+        // Auto slide for offers
+        setInterval(() => {
+            offersCurrentSlide = (offersCurrentSlide + 1) % offersSlides.length;
+            updateOffersSlider();
+        }, 5000);
+        
+        // Click on indicator for offers
+        offersIndicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                offersCurrentSlide = index;
+                updateOffersSlider();
+            });
+        });
+        
+        // Initialize offers slider
+        updateOffersSlider();
+    </script>
 </body>
 </html>
