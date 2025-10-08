@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Tours | Explore Country Packages</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af',
+            accent: '#f97316'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .tour-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tour-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.12);
+    }
+    .country-badge {
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Discover the World with Our Tour Packages</h1>
+      <p class="text-lg max-w-2xl mx-auto opacity-90 mb-8">
+        Handcrafted itineraries across 50+ countries. Small groups, expert guides, unforgettable experiences.
+      </p>
+      
+      <!-- Search Bar -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-2 max-w-2xl mx-auto">
+        <div class="flex flex-col sm:flex-row gap-2">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search destinations (e.g., Italy, Japan, Safari)" 
+            class="flex-1 px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <button class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition">
+            Search Tours
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Country Filter Sidebar -->
+      <aside class="lg:w-1/4">
+        <div class="bg-white p-6 rounded-xl shadow-sm sticky top-6">
+          <h2 class="text-xl font-bold text-gray-800 mb-4">Filter by Country</h2>
+          
+          <div class="space-y-3">
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-blue-50 font-medium text-blue-700 bg-blue-100" data-country="all">
+              All Countries
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="italy">
+              🇮🇹 Italy
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="japan">
+              🇯🇵 Japan
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="kenya">
+              🇰🇪 Kenya
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="peru">
+              🇵🇪 Peru
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="iceland">
+              🇮🇸 Iceland
+            </button>
+            <button class="country-filter w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100" data-country="thailand">
+              🇹🇭 Thailand
+            </button>
+          </div>
+
+          <!-- Duration Filter -->
+          <div class="mt-8">
+            <h3 class="font-medium text-gray-700 mb-3">Trip Duration</h3>
+            <div class="space-y-2">
+              <label class="flex items-center">
+                <input type="checkbox" class="mr-2 rounded text-blue-600"> 3-5 Days
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="mr-2 rounded text-blue-600"> 6-9 Days
+              </label>
+              <label class="flex items-center">
+                <input type="checkbox" class="mr-2 rounded text-blue-600"> 10+ Days
+              </label>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Tour Listings -->
+      <main class="lg:w-3/4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-800">Tour Packages by Country</h2>
+          <div class="text-sm text-gray-600">24 tours available</div>
+        </div>
+
+        <!-- Tour Grid -->
+        <div id="tourGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Italy Tour -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="italy">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Italy Tour" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇮🇹 Italy
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Classic Italy Explorer</h3>
+                  <p class="text-gray-600 text-sm">Rome → Florence → Venice</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.8</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>8 Days • 7 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Colosseum, Vatican, Tuscany vineyards, Grand Canal</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$2,199</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Japan Tour -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="japan">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1543430293-4f1c9e8b7e25?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Japan Tour" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇯🇵 Japan
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Cherry Blossom Japan</h3>
+                  <p class="text-gray-600 text-sm">Tokyo → Kyoto → Osaka</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.9</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>10 Days • 9 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Mount Fuji, Fushimi Inari, bullet train, tea ceremony</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$3,450</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kenya Safari -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="kenya">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1546182990-d314b6a7a7f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kenya Safari" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇰🇪 Kenya
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Great Migration Safari</h3>
+                  <p class="text-gray-600 text-sm">Nairobi → Masai Mara</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.7</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>7 Days • 6 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Lion tracking, hot air balloon, cultural village visit</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$2,899</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Peru Tour -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="peru">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1526392963663-65d538c9e566?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Peru Tour" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇵🇪 Peru
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Inca Trail to Machu Picchu</h3>
+                  <p class="text-gray-600 text-sm">Lima → Cusco → Sacred Valley</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.9</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>9 Days • 8 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Machu Picchu sunrise, Amazon rainforest, local markets</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$2,650</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Iceland Tour -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="iceland">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1508004771227-2b8e5a1e5c7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Iceland Tour" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇮🇸 Iceland
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Iceland Ring Road Adventure</h3>
+                  <p class="text-gray-600 text-sm">Reykjavik → Golden Circle → South Coast</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.8</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>8 Days • 7 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Northern Lights, Blue Lagoon, waterfalls, glaciers</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$3,100</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Thailand Tour -->
+          <div class="tour-card bg-white rounded-2xl overflow-hidden shadow-md" data-country="thailand">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1533640652364-2e71478b8f90?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Thailand Tour" class="w-full h-48 object-cover">
+              <div class="country-badge absolute top-4 left-4 px-3 py-1 rounded-full text-sm font-bold">
+                🇹🇭 Thailand
+              </div>
+            </div>
+            <div class="p-5">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h3 class="font-bold text-lg text-gray-800">Thailand Island Escape</h3>
+                  <p class="text-gray-600 text-sm">Bangkok → Phuket → Phi Phi</p>
+                </div>
+                <div class="flex items-center bg-yellow-50 px-2 py-1 rounded">
+                  <i class="fas fa-star text-yellow-500"></i>
+                  <span class="ml-1 font-medium">4.6</span>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center text-sm text-gray-500">
+                <i class="fas fa-clock mr-1"></i>
+                <span>7 Days • 6 Nights</span>
+              </div>
+              <div class="mt-4">
+                <p class="text-gray-700 text-sm">Temple tour, island hopping, Thai cooking class</p>
+              </div>
+              <div class="mt-5 flex justify-between items-center">
+                <div>
+                  <p class="text-sm text-gray-500">From</p>
+                  <p class="text-xl font-bold text-gray-800">$1,899</p>
+                </div>
+                <button class="view-details bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+                  View Details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- JavaScript for Filtering -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const countryButtons = document.querySelectorAll('.country-filter');
+      const tourCards = document.querySelectorAll('.tour-card');
+      const searchInput = document.getElementById('searchInput');
+
+      // Country filter
+      countryButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // Update active state
+          countryButtons.forEach(b => b.classList.remove('bg-blue-100', 'text-blue-700'));
+          btn.classList.add('bg-blue-100', 'text-blue-700');
+          
+          const country = btn.dataset.country;
+          
+          tourCards.forEach(card => {
+            if (country === 'all' || card.dataset.country === country) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase();
+        tourCards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const location = card.querySelector('.text-gray-600').textContent.toLowerCase();
+          if (title.includes(query) || location.includes(query)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+
+      // View Details button
+      document.querySelectorAll('.view-details').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tourName = this.closest('.tour-card').querySelector('h3').textContent;
+          alert(`Opening details for: ${tourName}\n(Demo mode)`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

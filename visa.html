@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visa Assistant | Global Visa Services</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2563eb',
+            secondary: '#1e40af',
+            success: '#10b981',
+            warning: '#f59e0b'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .visa-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 4px solid #3b82f6;
+    }
+    .visa-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    }
+    .visa-type-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-700 to-indigo-900 text-white py-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Your Global Visa Assistant</h1>
+      <p class="text-lg max-w-3xl mx-auto opacity-90 mb-8">
+        Fast, reliable visa services for 100+ countries. Tourist, Business, Work, Transit & more.
+      </p>
+      
+      <!-- Search & Filters -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search country or visa type..." 
+            class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+          <select id="visaTypeFilter" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="all">All Visa Types</option>
+            <option value="tourist">Tourist Visa</option>
+            <option value="business">Business Visa</option>
+            <option value="work">Work Visa</option>
+            <option value="transit">Transit Visa</option>
+            <option value="visit">Visit Visa</option>
+          </select>
+          <select id="countryFilter" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="all">All Countries</option>
+            <option value="usa">🇺🇸 United States</option>
+            <option value="uk">🇬🇧 United Kingdom</option>
+            <option value="canada">🇨🇦 Canada</option>
+            <option value="australia">🇦🇺 Australia</option>
+            <option value="schengen">🇪🇺 Schengen Area</option>
+            <option value="uae">🇦🇪 UAE</option>
+            <option value="japan">🇯🇵 Japan</option>
+            <option value="india">🇮🇳 India</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="max-w-7xl mx-auto px-4 py-12">
+    <div class="mb-8">
+      <h2 class="text-2xl font-bold text-gray-800">Visa Services by Country & Type</h2>
+      <p class="text-gray-600 mt-2">24 visa services available</p>
+    </div>
+
+    <!-- Visa Services Grid -->
+    <div id="visaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- USA Tourist Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="usa" data-visa-type="tourist">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-blue-100 text-blue-800 font-medium">Tourist Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇺🇸 United States</h3>
+            <p class="text-gray-600 text-sm">B-2 Tourist Visa</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">3-4 Weeks</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Consular Fee: $185</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-file-alt text-blue-600 mr-2"></i>
+            <span>DS-160 Form Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-calendar-check text-purple-600 mr-2"></i>
+            <span>Interview Required</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$249</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+
+      <!-- UK Business Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="uk" data-visa-type="business">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-purple-100 text-purple-800 font-medium">Business Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇬🇧 United Kingdom</h3>
+            <p class="text-gray-600 text-sm">Standard Visitor (Business)</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">15 Working Days</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Visa Fee: £115</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-file-alt text-blue-600 mr-2"></i>
+            <span>Invitation Letter Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-shield-alt text-green-600 mr-2"></i>
+            <span>Biometrics Required</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$199</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Canada Work Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="canada" data-visa-type="work">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-green-100 text-green-800 font-medium">Work Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇨🇦 Canada</h3>
+            <p class="text-gray-600 text-sm">Work Permit (LMIA)</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">8-12 Weeks</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Work Permit Fee: CAD $155</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-briefcase text-indigo-600 mr-2"></i>
+            <span>Job Offer Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-graduation-cap text-yellow-600 mr-2"></i>
+            <span>Education Credential Assessment</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$399</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Schengen Tourist Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="schengen" data-visa-type="tourist">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-blue-100 text-blue-800 font-medium">Tourist Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇪🇺 Schengen Area</h3>
+            <p class="text-gray-600 text-sm">Short-Stay Schengen Visa</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">15 Calendar Days</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Visa Fee: €80</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-plane mr-2 text-red-600"></i>
+            <span>Round-Trip Flight Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-hotel text-orange-600 mr-2"></i>
+            <span>Hotel Booking Required</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$179</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+
+      <!-- UAE Visit Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="uae" data-visa-type="visit">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-amber-100 text-amber-800 font-medium">Visit Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇦🇪 United Arab Emirates</h3>
+            <p class="text-gray-600 text-sm">90-Day Visit Visa</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">3-5 Working Days</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Visa Fee: AED 1,500</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-id-card text-teal-600 mr-2"></i>
+            <span>Sponsor Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-file-medical text-pink-600 mr-2"></i>
+            <span>Medical Insurance Mandatory</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$299</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Australia Transit Visa -->
+      <div class="visa-card bg-white rounded-xl shadow-sm p-5" data-country="australia" data-visa-type="transit">
+        <div class="flex justify-between items-start">
+          <div>
+            <span class="visa-type-badge bg-gray-100 text-gray-800 font-medium">Transit Visa</span>
+            <h3 class="font-bold text-lg text-gray-800 mt-2">🇦🇺 Australia</h3>
+            <p class="text-gray-600 text-sm">Transit Visa (Subclass 771)</p>
+          </div>
+          <div class="text-right">
+            <div class="text-sm text-gray-500">Processing Time</div>
+            <div class="font-medium text-gray-800">1-2 Days</div>
+          </div>
+        </div>
+        <div class="mt-4 space-y-2 text-sm text-gray-700">
+          <div class="flex items-center">
+            <i class="fas fa-dollar-sign text-green-600 mr-2"></i>
+            <span>Visa Fee: AUD $0 (Free)</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-plane mr-2 text-blue-600"></i>
+            <span>Onward Ticket Required</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-clock text-purple-600 mr-2"></i>
+            <span>Max Stay: 72 Hours</span>
+          </div>
+        </div>
+        <div class="mt-5 flex justify-between items-center">
+          <div class="text-xl font-bold text-gray-800">$49</div>
+          <button class="apply-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition">
+            Apply Now
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Filtering & Interactivity -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const visaCards = document.querySelectorAll('.visa-card');
+      const searchInput = document.getElementById('searchInput');
+      const visaTypeFilter = document.getElementById('visaTypeFilter');
+      const countryFilter = document.getElementById('countryFilter');
+
+      // Filter function
+      const applyFilters = () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        const visaType = visaTypeFilter.value;
+        const country = countryFilter.value;
+
+        visaCards.forEach(card => {
+          const matchesSearch = 
+            card.querySelector('h3').textContent.toLowerCase().includes(searchTerm) ||
+            card.querySelector('.text-gray-600').textContent.toLowerCase().includes(searchTerm) ||
+            card.querySelector('.visa-type-badge').textContent.toLowerCase().includes(searchTerm);
+          
+          const matchesVisaType = visaType === 'all' || card.dataset.visaType === visaType;
+          const matchesCountry = country === 'all' || card.dataset.country === country;
+
+          if (matchesSearch && matchesVisaType && matchesCountry) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      };
+
+      // Event listeners
+      searchInput.addEventListener('input', applyFilters);
+      visaTypeFilter.addEventListener('change', applyFilters);
+      countryFilter.addEventListener('change', applyFilters);
+
+      // Apply Now button
+      document.querySelectorAll('.apply-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const country = this.closest('.visa-card').querySelector('h3').textContent.trim();
+          const visaType = this.closest('.visa-card').querySelector('.visa-type-badge').textContent;
+          alert(`Starting application for:\n${visaType} - ${country}\n\n(Demo mode: Redirecting to form...)`);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
