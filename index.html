@@ -81,53 +81,78 @@
   </head>
   <body class="font-sans bg-gray-50">
     <!-- Header -->
-    <header class="bg-blue-200 shadow-md fixed w-full z-50 rounded-b-lg">
+    <header class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
       <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
       >
         <div class="flex items-center">
           <a href="/" class="flex items-center">
             <img
               src="./public/images/logo/icon.png"
               alt="Taylagari Logo"
-              class="h-10 w-10 mr-2"
+              class="h-20 w-20 mr-2"
             />
-            <h1 class="text-3xl font-bold text-gray-700">Taylagari</h1>
+            <h1 class="text-4xl font-bold text-gray-700 uppercase">
+              <span class="text-black">Taylagari</span>
+            </h1>
           </a>
         </div>
         <nav class="hidden lg:flex space-x-8 items-center">
           <div class="dropdown relative">
             <a
               href="/flight.html"
-              class="nav-item active text-gray-700 font-medium py-2"
+              class="nav-item active text-lg text-gray-700 font-medium py-2"
               >Flight</a
             >
           </div>
           <div class="dropdown relative">
             <a
               href="/hotel.html"
-              class="nav-item text-gray-700 font-medium py-2"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Hotel</a
             >
           </div>
           <div class="dropdown relative">
-            <a href="/tour.html" class="nav-item text-gray-700 font-medium py-2"
+            <a
+              href="/tour.html"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Tour</a
             >
           </div>
           <div class="dropdown relative">
-            <a href="/visa.html" class="nav-item text-gray-700 font-medium py-2"
+            <a
+              href="/visa.html"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Visa</a
             >
           </div>
           <div class="dropdown relative">
-            <a href="#" class="nav-item text-gray-700 font-medium py-2"
+            <a href="#" class="nav-item text-lg text-gray-700 font-medium py-2"
               >Media</a
             >
+            <div
+              class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-blue-200 rounded-lg shadow-lg py-2 z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Taylagari OTT</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Shan Talikes</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Shanfun TV</a
+              >
+            </div>
           </div>
           <a
             href="#"
-            class="bg-gray-700 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold text-white"
+            class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
             >Sign In</a
           >
         </nav>
@@ -175,7 +200,7 @@
     </header>
 
     <!-- Modern Hero Slider -->
-    <section class="relative h-[520px] overflow-hidden flex pt-18">
+    <section class="relative h-[520px] overflow-hidden flex pt-20">
       <!-- Slider Area (80%) -->
       <!-- 
         Image sizes for hero slider:
