@@ -125,6 +125,35 @@
               class="nav-item text-lg text-gray-700 font-medium py-2"
               >Visa</a
             >
+            <div
+              class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-blue-200 rounded-lg shadow-lg py-2 z-50"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Work Visa</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Indian Visa</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Transit Visa</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Medical Visa</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-gray-700 text-lg hover:bg-white hover:text-primary hover:rounded-lg"
+                >Travel Visa</a
+              >
+            </div>
           </div>
           <div class="dropdown relative">
             <a href="#" class="nav-item text-lg text-gray-700 font-medium py-2"
@@ -200,55 +229,41 @@
     </header>
 
     <!-- Modern Hero Slider -->
-    <section class="relative h-[520px] overflow-hidden flex pt-20">
+    <section
+      class="bg-gradient-to-br from-sky-500 to-emerald-500 relative h-[520px] overflow-hidden flex lg:pt-20"
+    >
       <!-- Slider Area (80%) -->
-      <!-- 
-        Image sizes for hero slider:
-        - Desktop (lg): 980x520px (covers 70% of section, h-[520px])
-        - Tablet (md): 100vw x 320px (full width, recommended min-height: 320px)
-        - Mobile (sm): 100vw x 220px (full width, recommended min-height: 220px)
-        All images use object-cover and bg-center for best fit.
-      -->
       <div class="w-full lg:w-[80%] h-full relative">
         <div
           id="hero-slider"
           class="slider h-full flex transition-transform duration-500 ease-in-out"
         >
           <div
-            class="min-w-full h-full bg-cover bg-center"
-            style="
-              background-image: url('/public/images/cover/visa/agriculture_Work_visa.jpg');
-            "
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
           >
-            <div
-              class="h-full flex items-center justify-center bg-black bg-opacity-30"
-            >
-              <div class="text-center text-white px-4 max-w-3xl"></div>
-            </div>
+            <img
+              src="/public/images/cover/visa/agriculture_Work_visa.jpg"
+              alt="Agriculture Work Visa"
+              class="h-full w-full object-contain"
+            />
           </div>
           <div
-            class="min-w-full h-full bg-cover bg-center"
-            style="
-              background-image: url('./public/images/cover/visa/Slide.jpg');
-            "
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
           >
-            <div
-              class="h-full flex items-center justify-center bg-black bg-opacity-30"
-            >
-              <div class="text-center text-white px-4 max-w-3xl"></div>
-            </div>
+            <img
+              src="./public/images/cover/visa/Slide.jpg"
+              alt="Visa Slide"
+              class="h-full w-full object-contain"
+            />
           </div>
           <div
-            class="min-w-full h-full bg-cover bg-center"
-            style="
-              background-image: url('./public/images/cover/visa/Slide.png');
-            "
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
           >
-            <div
-              class="h-full flex items-center justify-center bg-black bg-opacity-30"
-            >
-              <div class="text-center text-white px-4 max-w-3xl"></div>
-            </div>
+            <img
+              src="./public/images/cover/visa/Slide.png"
+              alt="Visa Slide 2"
+              class="h-full w-full object-contain"
+            />
           </div>
         </div>
         <button
@@ -278,11 +293,14 @@
         </div>
       </div>
       <!-- Static Info Area (20%) -->
-      <div class="hidden lg:block w-[20%] h-full relative">
-        <div
-          class="absolute inset-0 bg-cover bg-center"
-          style="background-image: url('./public/images/cover/airticket.png')"
-        ></div>
+      <div
+        class="hidden lg:block w-[20%] h-full relative"
+        style="
+          background-image: url('./public/images/cover/airticket.png');
+          background-size: cover;
+          background-position: center;
+        "
+      >
         <div
           class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-8"
         >
@@ -484,7 +502,7 @@
                 </p>
                 <div class="flex justify-between items-center">
                   <span class="text-primary font-bold"
-                    >Salry: BDT 1,20,000</span
+                    >Salary: BDT 1,20,000</span
                   >
                   <button
                     class="text-xs bg-primary text-white px-3 py-2 rounded"
@@ -514,7 +532,67 @@
     <!-- Top Airlines -->
     <section class="py-12 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-4">Search Top Airlines</h2>
+        <h2 class="text-3xl font-bold text-center mb-4">
+          <div class="flex items-center justify-center">
+            <button
+              id="airline-prev"
+              class="mr-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <span class="text-2xl text-blue-400 font-bold"
+              >Book Your Flight With Us!</span
+            >
+            <button
+              id="airline-next"
+              class="ml-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+          <script>
+            // Airline slider logic
+            document.addEventListener("DOMContentLoaded", function () {
+              const airlineGrid = document.querySelector(
+                ".grid.grid-cols-2.md\\:grid-cols-4.gap-6"
+              );
+              const airlineCards = Array.from(airlineGrid.children);
+              let airlineIndex = 0;
+              const visible = 4; // Number of airlines to show
+
+              function showAirlines() {
+                airlineGrid.innerHTML = "";
+                for (let i = 0; i < visible; i++) {
+                  const idx = (airlineIndex + i) % airlineCards.length;
+                  airlineGrid.appendChild(airlineCards[idx].cloneNode(true));
+                }
+              }
+
+              document
+                .getElementById("airline-next")
+                .addEventListener("click", function () {
+                  airlineIndex = (airlineIndex + 1) % airlineCards.length;
+                  showAirlines();
+                });
+
+              document
+                .getElementById("airline-prev")
+                .addEventListener("click", function () {
+                  airlineIndex =
+                    (airlineIndex - 1 + airlineCards.length) %
+                    airlineCards.length;
+                  showAirlines();
+                });
+
+              setInterval(function () {
+                airlineIndex = (airlineIndex + 1) % airlineCards.length;
+                showAirlines();
+              }, 4000);
+
+              showAirlines();
+            });
+          </script>
+        </h2>
         <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
           Taylagari's user-friendly platform connects you to top airlines
           instantly. Enjoy a comfortable and hassle-free journey on any
@@ -522,39 +600,147 @@
         </p>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div
-            class="bg-gray-100 rounded-lg p-2 flex justify-center items-center h-32"
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
           >
             <img
-              src="./public/images/airline/qatar.jpg"
+              src="./public/images/airline/BIMAN-BANGLADESH.jpg"
               alt="Biman Bangladesh Airlines"
               class="h-full object-contain"
             />
           </div>
           <div
-            class="bg-gray-100 rounded-lg p-2 flex justify-center items-center h-32"
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
           >
             <img
-              src="./public/images/airline/Emriats.png"
+              src="./public/images/airline/US-BANGLA.jpg"
               alt="US-Bangla Airlines"
               class="h-full object-contain"
             />
           </div>
           <div
-            class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32"
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
           >
             <img
-              src="https://placehold.co/160x80/3b82f6/FFFFFF?text=NOVOAIR"
+              src="./public/images/airline/NOVOAIR.jpg"
               alt="NOVOAIR"
-              class="max-h-12"
+              class="h-full object-contain"
             />
           </div>
           <div
-            class="bg-gray-100 rounded-lg p-6 flex justify-center items-center h-32"
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
           >
             <img
-              src="https://placehold.co/160x80/1e40af/FFFFFF?text=Airline+4"
-              alt="Airline"
-              class="max-h-12"
+              src="./public/images/airline/AIR-INDIA.jpg"
+              alt="Air India"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/emilates.jpg"
+              alt="Emirates"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Etihad-Airways.jpg"
+              alt="Etihad Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/QUATER-AIRLINES.jpg"
+              alt="Qatar Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SINGAPUR-AIRLINES.jpg"
+              alt="Singapore Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SAUDIA.jpg"
+              alt="Saudia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/THAI-AIRLINES.jpg"
+              alt="Thai Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/TURKISH-AIRLINES.jpg"
+              alt="Turkish Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Cathay-Dargon.jpg"
+              alt="Cathay Dragon"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CHINA-EASTERN.jpg"
+              alt="China Eastern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CINA-SOUTHHERN-AIRLINES.jpg"
+              alt="China Southern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Malaysia-Airlines.jpg"
+              alt="Malaysia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SRILAMKKAN-AIRLINES.jpg"
+              alt="SriLankan Airlines"
+              class="h-full object-contain"
             />
           </div>
         </div>
@@ -805,7 +991,7 @@
 
     <!-- Bottom Section -->
     <section
-      class="py-16"
+      class="py-16 bg-opacity-30"
       style="
         background-image: url('./public/images/cover/leon-macapagal-e_xjeaSMgpI-unsplash.jpg');
         background-size: cover;
@@ -1071,6 +1257,9 @@
 
         nextBtn.addEventListener("click", () => {
           scrollAmount += scrollStep;
+          if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+            scrollAmount = 0; // Reset to start for clockwise movement
+          }
           slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
         });
 
