@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="/public/styles/brand.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css"
@@ -174,7 +175,9 @@
             </div>
           </div>
           <div class="dropdown relative">
-            <a href="#" class="nav-item text-lg text-gray-700 font-medium py-2"
+            <a
+              href="/media.html"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Media</a
             >
             <div
@@ -198,7 +201,7 @@
             </div>
           </div>
           <a
-            href="#"
+            href="/auth.html"
             class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
             >Sign In</a
           >
@@ -239,7 +242,7 @@
           >Media</a
         >
         <a
-          href="/media.html"
+          href="/auth.html"
           class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300"
           >Sign In</a
         >
@@ -587,69 +590,6 @@
       </div>
     </div>
 
-    <!-- JavaScript for Filtering & Interactivity -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const visaCards = document.querySelectorAll(".visa-card");
-        const searchInput = document.getElementById("searchInput");
-        const visaTypeFilter = document.getElementById("visaTypeFilter");
-        const countryFilter = document.getElementById("countryFilter");
-
-        // Filter function
-        const applyFilters = () => {
-          const searchTerm = searchInput.value.toLowerCase();
-          const visaType = visaTypeFilter.value;
-          const country = countryFilter.value;
-
-          visaCards.forEach((card) => {
-            const matchesSearch =
-              card
-                .querySelector("h3")
-                .textContent.toLowerCase()
-                .includes(searchTerm) ||
-              card
-                .querySelector(".text-gray-600")
-                .textContent.toLowerCase()
-                .includes(searchTerm) ||
-              card
-                .querySelector(".visa-type-badge")
-                .textContent.toLowerCase()
-                .includes(searchTerm);
-
-            const matchesVisaType =
-              visaType === "all" || card.dataset.visaType === visaType;
-            const matchesCountry =
-              country === "all" || card.dataset.country === country;
-
-            if (matchesSearch && matchesVisaType && matchesCountry) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        };
-
-        // Event listeners
-        searchInput.addEventListener("input", applyFilters);
-        visaTypeFilter.addEventListener("change", applyFilters);
-        countryFilter.addEventListener("change", applyFilters);
-
-        // Apply Now button
-        document.querySelectorAll(".apply-btn").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            const country = this.closest(".visa-card")
-              .querySelector("h3")
-              .textContent.trim();
-            const visaType =
-              this.closest(".visa-card").querySelector(
-                ".visa-type-badge"
-              ).textContent;
-            alert(
-              `Starting application for:\n${visaType} - ${country}\n\n(Demo mode: Redirecting to form...)`
-            );
-          });
-        });
-      });
-    </script>
+    <script type="module" src="/public/scripts/site.js"></script>
   </body>
 </html>

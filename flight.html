@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="/public/styles/brand.css" />
     <script>
       tailwind.config = {
         theme: {
@@ -32,7 +33,6 @@
         object-fit: cover;
         z-index: -1;
       }
-
       @media (max-width: 768px) {
         .video-container {
           display: none;
@@ -51,59 +51,6 @@
         width: 100%;
         height: 100%;
         z-index: -1;
-      }
-
-      .slider {
-        transition: transform 0.5s ease-in-out;
-      }
-      .route-card,
-      .hotel-card,
-      .destination-card {
-        transition: all 0.3s ease;
-      }
-      .route-card:hover,
-      .hotel-card:hover,
-      .destination-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      }
-      .search-tab {
-        transition: all 0.2s ease;
-      }
-      .search-tab.active {
-        background-color: #3b82f6;
-        color: white;
-      }
-      .nav-item {
-        position: relative;
-      }
-      .nav-item.active::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: white;
-        border-radius: 3px;
-      }
-      .dropdown:hover .dropdown-menu {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      .dropdown-menu {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: all 0.3s ease;
-      }
-      .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      .scrollbar-hide::-webkit-scrollbar {
-        display: none;
       }
     </style>
   </head>
@@ -184,7 +131,9 @@
             </div>
           </div>
           <div class="dropdown relative">
-            <a href="#" class="nav-item text-lg text-gray-700 font-medium py-2"
+            <a
+              href="/media.html"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Media</a
             >
             <div
@@ -208,7 +157,7 @@
             </div>
           </div>
           <a
-            href="#"
+            href="/auth.html"
             class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
             >Sign In</a
           >
@@ -249,7 +198,7 @@
           >Media</a
         >
         <a
-          href="/media.html"
+          href="/auth.html"
           class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300"
           >Sign In</a
         >
@@ -408,72 +357,182 @@
         </div>
       </div>
     </section>
+    <!-- Top Airlines -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">
+          <div class="flex items-center justify-center">
+            <button
+              id="airline-prev"
+              class="mr-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <span class="text-2xl text-blue-400 font-bold"
+              >Book Your Flight With Us!</span
+            >
+            <button
+              id="airline-next"
+              class="ml-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+        </h2>
+        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+          Taylagari's user-friendly platform connects you to top airlines
+          instantly. Enjoy a comfortable and hassle-free journey on any
+          destination and get tickets of top airlines easily.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 airline-grid">
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/BIMAN-BANGLADESH.jpg"
+              alt="Biman Bangladesh Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/US-BANGLA.jpg"
+              alt="US-Bangla Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/NOVOAIR.jpg"
+              alt="NOVOAIR"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/AIR-INDIA.jpg"
+              alt="Air India"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/emilates.jpg"
+              alt="Emirates"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Etihad-Airways.jpg"
+              alt="Etihad Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/QUATER-AIRLINES.jpg"
+              alt="Qatar Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SINGAPUR-AIRLINES.jpg"
+              alt="Singapore Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SAUDIA.jpg"
+              alt="Saudia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/THAI-AIRLINES.jpg"
+              alt="Thai Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/TURKISH-AIRLINES.jpg"
+              alt="Turkish Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Cathay-Dargon.jpg"
+              alt="Cathay Dragon"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CHINA-EASTERN.jpg"
+              alt="China Eastern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CINA-SOUTHHERN-AIRLINES.jpg"
+              alt="China Southern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Malaysia-Airlines.jpg"
+              alt="Malaysia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SRILAMKKAN-AIRLINES.jpg"
+              alt="SriLankan Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- JavaScript for Interactivity -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const tripButtons = document.querySelectorAll(".trip-btn");
-        const returnField = document.getElementById("returnField");
-        const form = document.getElementById("flightForm");
-
-        // Set today as min date
-        const today = new Date().toISOString().split("T")[0];
-        document.querySelectorAll('input[type="date"]').forEach((input) => {
-          input.min = today;
-        });
-
-        // Trip type toggle
-        tripButtons.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            // Reset all buttons
-            tripButtons.forEach((b) => {
-              b.classList.remove("bg-blue-600", "text-white");
-              b.classList.add("text-gray-600");
-            });
-
-            // Activate clicked button
-            btn.classList.remove("text-gray-600");
-            btn.classList.add("bg-blue-600", "text-white");
-
-            const tripType = btn.dataset.trip;
-
-            // Hide/show return field
-            if (tripType === "one-way" || tripType === "multi") {
-              returnField.style.opacity = "0";
-              returnField.style.height = "0";
-              returnField.style.margin = "0";
-              setTimeout(() => {
-                returnField.style.display = "none";
-              }, 300);
-            } else {
-              returnField.style.display = "block";
-              setTimeout(() => {
-                returnField.style.opacity = "1";
-                returnField.style.height = "auto";
-                returnField.style.margin = "";
-              }, 10);
-            }
-          });
-        });
-
-        // Form submission (prevent for demo)
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          const formData = new FormData(form);
-          alert("Searching flights... (Demo mode)");
-          console.log("Flight search data:", Object.fromEntries(formData));
-        });
-
-        // Optional: Animate form on load
-        const formCard = document.querySelector(".backdrop-blur-sm");
-        formCard.style.opacity = "0";
-        formCard.style.transform = "translateY(20px)";
-        setTimeout(() => {
-          formCard.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-          formCard.style.opacity = "1";
-          formCard.style.transform = "translateY(0)";
-        }, 300);
-      });
-    </script>
+    <script type="module" src="/public/scripts/site.js"></script>
   </body>
 </html>

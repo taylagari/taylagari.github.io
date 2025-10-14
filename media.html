@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media | Taylagari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/public/styles/brand.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e40af",
+              secondary: "#3b82f6",
+              accent: "#f97316",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <header class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="/" class="flex items-center">
+            <img
+              src="./public/images/logo/icon.png"
+              alt="Taylagari Logo"
+              class="h-20 w-20 mr-2"
+            />
+            <h1 class="text-4xl font-bold text-gray-700 uppercase">
+              <span class="text-black">Taylagari</span>
+            </h1>
+          </a>
+        </div>
+        <nav class="hidden lg:flex space-x-8 items-center">
+          <a
+            href="/flight.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Flight</a
+          >
+          <a
+            href="/hotel.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Hotel</a
+          >
+          <a
+            href="/tour.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Tour</a
+          >
+          <a
+            href="/visa.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Visa</a
+          >
+          <a
+            href="/media.html"
+            class="nav-item active text-lg text-gray-700 font-medium py-2"
+            >Media</a
+          >
+          <a
+            href="/auth.html"
+            class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
+            >Sign In</a
+          >
+        </nav>
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-700">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white px-4 py-3 shadow-lg"
+      >
+        <a
+          href="/flight.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Flight</a
+        >
+        <a
+          href="/hotel.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Hotel</a
+        >
+        <a
+          href="/tour.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Tour</a
+        >
+        <a
+          href="/visa.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Visa</a
+        >
+        <a
+          href="/media.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Media</a
+        >
+        <a
+          href="/auth.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300"
+          >Sign In</a
+        >
+      </div>
+    </header>
+
+    <section
+      class="bg-gradient-to-r from-blue-600 to-indigo-800 text-white pt-32 pb-16"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 heading">
+          Taylagari Media
+        </h2>
+        <p class="text-white/90 max-w-2xl mx-auto">
+          Stories, travel films, and updates from our journeys around the world.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12">
+      <h3 class="text-2xl font-bold mb-6">Latest Videos</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="#" class="elevate bg-white rounded-xl overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=900&auto=format&fit=crop"
+            alt="Travel Film"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-gray-800">Exploring Cappadocia</h4>
+            <p class="text-sm text-gray-600 mt-1">
+              Hot-air balloons and ancient valleys
+            </p>
+          </div>
+        </a>
+        <a href="#" class="elevate bg-white rounded-xl overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1505764706515-aa95265c5abc?q=80&w=900&auto=format&fit=crop"
+            alt="Travel Film"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-gray-800">Bangkok Night Markets</h4>
+            <p class="text-sm text-gray-600 mt-1">Street food and neon vibes</p>
+          </div>
+        </a>
+        <a href="#" class="elevate bg-white rounded-xl overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=900&auto=format&fit=crop"
+            alt="Travel Film"
+            class="w-full h-48 object-cover"
+          />
+          <div class="p-4">
+            <h4 class="font-semibold text-gray-800">Alpine Rail Journey</h4>
+            <p class="text-sm text-gray-600 mt-1">Through the Swiss Alps</p>
+          </div>
+        </a>
+      </div>
+
+      <h3 class="text-2xl font-bold mt-12 mb-6">News & Updates</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="elevate bg-white rounded-xl p-5">
+          <h4 class="font-semibold text-gray-800">New Tour: Iceland Winter</h4>
+          <p class="text-gray-600 text-sm mt-2">
+            Chasing Northern Lights with expert guides. Departures Dec–Feb.
+          </p>
+          <a href="#" class="brand-link inline-block mt-3">Read more →</a>
+        </article>
+        <article class="elevate bg-white rounded-xl p-5">
+          <h4 class="font-semibold text-gray-800">Partner Airline Offer</h4>
+          <p class="text-gray-600 text-sm mt-2">
+            Up to 20% off selected long-haul routes this season.
+          </p>
+          <a href="#" class="brand-link inline-block mt-3">Read more →</a>
+        </article>
+        <article class="elevate bg-white rounded-xl p-5">
+          <h4 class="font-semibold text-gray-800">Hotel Spotlight: Maldives</h4>
+          <p class="text-gray-600 text-sm mt-2">
+            Overwater villas with private pools and direct lagoon access.
+          </p>
+          <a href="#" class="brand-link inline-block mt-3">Read more →</a>
+        </article>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <h3 class="text-xl font-bold mb-4">Explore</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="/aboutus.html" class="text-gray-300 hover:text-white"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Services</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="/flight.html" class="text-gray-300 hover:text-white"
+                  >Flight</a
+                >
+              </li>
+              <li>
+                <a href="/hotel.html" class="text-gray-300 hover:text-white"
+                  >Hotel</a
+                >
+              </li>
+              <li>
+                <a href="/tour.html" class="text-gray-300 hover:text-white"
+                  >Tour</a
+                >
+              </li>
+              <li>
+                <a href="/visa.html" class="text-gray-300 hover:text-white"
+                  >Visa</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Follow</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-facebook-f text-xl"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-twitter text-xl"></i
+              ></a>
+              <a href="#" class="text-gray-400 hover:text-white"
+                ><i class="fab fa-instagram text-xl"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4">Contact</h3>
+            <p class="text-gray-400">hello@taylagari.com</p>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm"
+        >
+          © 2025 Taylagari. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

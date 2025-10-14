@@ -4,8 +4,205 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us | Taylagari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/public/styles/brand.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-sky-50 text-slate-800 font-sans">
+    <header class="bg-white shadow-md fixed w-full z-50 rounded-b-lg">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <a href="/" class="flex items-center">
+          <img
+            src="./public/images/logo/icon.png"
+            alt="Taylagari Logo"
+            class="h-16 w-16 mr-2"
+          />
+          <h1 class="text-3xl font-bold text-gray-700 uppercase">
+            <span class="text-black">Taylagari</span>
+          </h1>
+        </a>
+        <nav class="hidden lg:flex space-x-8 items-center">
+          <a
+            href="/flight.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Flight</a
+          >
+          <a
+            href="/hotel.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Hotel</a
+          >
+          <a
+            href="/tour.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Tour</a
+          >
+          <a
+            href="/visa.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Visa</a
+          >
+          <a
+            href="/media.html"
+            class="nav-item text-lg text-gray-700 font-medium py-2"
+            >Media</a
+          >
+          <a
+            href="/auth.html"
+            class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
+            >Sign In</a
+          >
+        </nav>
+        <div class="lg:hidden">
+          <button id="menu-toggle" class="text-gray-700">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white px-4 py-3 shadow-lg"
+      >
+        <a
+          href="/flight.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Flight</a
+        >
+        <a
+          href="/hotel.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Hotel</a
+        >
+        <a
+          href="/tour.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Tour</a
+        >
+        <a
+          href="/visa.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Visa</a
+        >
+        <a
+          href="/media.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-200"
+          >Media</a
+        >
+        <a
+          href="/auth.html"
+          class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300"
+          >Sign In</a
+        >
+      </div>
+    </header>
+
+    <section
+      class="bg-gradient-to-br from-sky-500 to-emerald-500 text-white pt-32 pb-16"
+    >
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">About Taylagari</h2>
+        <p class="text-white/90 max-w-3xl mx-auto">
+          Your trusted travel partner crafting memorable trips with modern
+          service and fair pricing.
+        </p>
+      </div>
+    </section>
+
+    <main class="container mx-auto px-6 py-12">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <img
+          class="rounded-xl shadow"
+          src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=900&q=80"
+          alt="Team in nature"
+        />
+        <div>
+          <h3 class="text-3xl font-bold mb-3">Our Mission</h3>
+          <p class="text-slate-700 leading-relaxed">
+            We make travel simple and enjoyable—from flights and hotels to visas
+            and curated tours—powered by a customer-first mindset and
+            technology.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white pt-12 pb-6">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h4 class="font-bold mb-3">Explore</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/about_us.html" class="text-gray-300 hover:text-white"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white"
+                  >Terms & Conditions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-white">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-3">Services</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="/flight.html" class="text-gray-300 hover:text-white"
+                  >Flight</a
+                >
+              </li>
+              <li>
+                <a href="/hotel.html" class="text-gray-300 hover:text-white"
+                  >Hotel</a
+                >
+              </li>
+              <li>
+                <a href="/tour.html" class="text-gray-300 hover:text-white"
+                  >Tour</a
+                >
+              </li>
+              <li>
+                <a href="/visa.html" class="text-gray-300 hover:text-white"
+                  >Visa</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-bold mb-3">Contact</h4>
+            <p class="text-gray-400">hello@taylagari.com</p>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 pt-6 text-center text-gray-400 text-sm"
+        >
+          © 2025 Taylagari. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/public/scripts/site.js"></script>
+  </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Taylagari</title>
     <!-- Tailwind CSS CDN (for demo only – use build process in production) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/public/styles/brand.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"

@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="/public/styles/brand.css" />
     <script>
       tailwind.config = {
         theme: {
@@ -168,7 +169,9 @@
             </div>
           </div>
           <div class="dropdown relative">
-            <a href="#" class="nav-item text-lg text-gray-700 font-medium py-2"
+            <a
+              href="/media.html"
+              class="nav-item text-lg text-gray-700 font-medium py-2"
               >Media</a
             >
             <div
@@ -192,7 +195,7 @@
             </div>
           </div>
           <a
-            href="#"
+            href="/auth.html"
             class="bg-gray-700 hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white"
             >Sign In</a
           >
@@ -233,7 +236,7 @@
           >Media</a
         >
         <a
-          href="/media.html"
+          href="/auth.html"
           class="block px-4 py-3 text-gray-700 border-b hover:bg-blue-300"
           >Sign In</a
         >
@@ -693,59 +696,6 @@
       </div>
     </div>
 
-    <!-- JavaScript for Filtering -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const countryButtons = document.querySelectorAll(".country-filter");
-        const tourCards = document.querySelectorAll(".tour-card");
-        const searchInput = document.getElementById("searchInput");
-
-        // Country filter
-        countryButtons.forEach((btn) => {
-          btn.addEventListener("click", () => {
-            // Update active state
-            countryButtons.forEach((b) =>
-              b.classList.remove("bg-blue-100", "text-blue-700")
-            );
-            btn.classList.add("bg-blue-100", "text-blue-700");
-
-            const country = btn.dataset.country;
-
-            tourCards.forEach((card) => {
-              if (country === "all" || card.dataset.country === country) {
-                card.style.display = "block";
-              } else {
-                card.style.display = "none";
-              }
-            });
-          });
-        });
-
-        // Search functionality
-        searchInput.addEventListener("input", () => {
-          const query = searchInput.value.toLowerCase();
-          tourCards.forEach((card) => {
-            const title = card.querySelector("h3").textContent.toLowerCase();
-            const location = card
-              .querySelector(".text-gray-600")
-              .textContent.toLowerCase();
-            if (title.includes(query) || location.includes(query)) {
-              card.style.display = "block";
-            } else {
-              card.style.display = "none";
-            }
-          });
-        });
-
-        // View Details button
-        document.querySelectorAll(".view-details").forEach((btn) => {
-          btn.addEventListener("click", function () {
-            const tourName =
-              this.closest(".tour-card").querySelector("h3").textContent;
-            alert(`Opening details for: ${tourName}\n(Demo mode)`);
-          });
-        });
-      });
-    </script>
+    <script type="module" src="/public/scripts/site.js"></script>
   </body>
 </html>
