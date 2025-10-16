@@ -1,0 +1,174 @@
+  <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-4">
+          <div class="flex items-center justify-center">
+            <button
+              id="airline-prev"
+              class="mr-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-left text-gray-700"></i>
+            </button>
+            <span class="text-3xl font-bold text-center mb-4"
+              >Book Your Flight With Us!</span
+            >
+            <button
+              id="airline-next"
+              class="ml-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
+            >
+              <i class="fas fa-chevron-right text-gray-700"></i>
+            </button>
+          </div>
+        </h2>
+        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+          Taylagari's user-friendly platform connects you to top airlines
+          instantly. Enjoy a comfortable and hassle-free journey on any
+          destination and get tickets of top airlines easily.
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 airline-grid">
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/BIMAN-BANGLADESH.jpg"
+              alt="Biman Bangladesh Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/US-BANGLA.jpg"
+              alt="US-Bangla Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/NOVOAIR.jpg"
+              alt="NOVOAIR"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/AIR-INDIA.jpg"
+              alt="Air India"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/emilates.jpg"
+              alt="Emirates"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Etihad-Airways.jpg"
+              alt="Etihad Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/QUATER-AIRLINES.jpg"
+              alt="Qatar Airways"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SINGAPUR-AIRLINES.jpg"
+              alt="Singapore Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SAUDIA.jpg"
+              alt="Saudia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/THAI-AIRLINES.jpg"
+              alt="Thai Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/TURKISH-AIRLINES.jpg"
+              alt="Turkish Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Cathay-Dargon.jpg"
+              alt="Cathay Dragon"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CHINA-EASTERN.jpg"
+              alt="China Eastern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/CINA-SOUTHHERN-AIRLINES.jpg"
+              alt="China Southern Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/Malaysia-Airlines.jpg"
+              alt="Malaysia Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+          <div
+            class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
+          >
+            <img
+              src="./public/images/airline/SRILAMKKAN-AIRLINES.jpg"
+              alt="SriLankan Airlines"
+              class="h-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>

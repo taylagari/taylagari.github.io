@@ -9,23 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="/public/styles/brand.css" />
-
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#1e40af",
-              secondary: "#3b82f6",
-              accent: "#f97316",
-              "sky-light": "#e0f2fe",
-              "sky-dark": "#0ea5e9",
-            },
-          },
-        },
-      };
-    </script>
+    <link rel="stylesheet" href="./public/styles/brand.css" />
   </head>
   <body class="font-sans bg-gray-50">
     <!-- Header -->
@@ -288,12 +272,19 @@
     <!-- Work Visa Slider -->
     <section class="py-12 bg-green-100">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-4 mb-10">Work Visa</h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
-          Prepare your work visa with Taylagari. We provide comprehensive
-          services to help you secure your work visa efficiently and
-          hassle-free.
-        </p>
+        <div class="flex justify-between">
+          <h2 class="text-3xl font-bold text-left mb-4 mb-10">
+            Work Permit Visa
+          </h2>
+          <a
+            href="./work_visa.html"
+            class="btn btn-primary hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white mb-6"
+            >Explore More
+          </a>
+        </div>
+
+        <hr class="mb-6 border-t-2 border-blue-200" />
+
         <div class="relative">
           <div
             id="explore-slider"
@@ -332,7 +323,11 @@
                   <button
                     class="text-xs bg-primary text-white px-3 py-2 rounded"
                   >
-                    <a href="https://wa.me/+8801722009953">Contact Now</a>
+                    <a
+                      href="https://wa.me/+8801722009953"
+                      class="btn btn-primary hover:bg-blue-600 text-sm px-4 py-2 rounded-lg font-semibold text-white"
+                      >Contact Now</a
+                    >
                   </button>
                 </div>
               </div>
@@ -368,7 +363,11 @@
                   <button
                     class="text-xs bg-primary text-white px-3 py-2 rounded"
                   >
-                    <a href="https://wa.me/+8801722009953">Contact Now</a>
+                    <a
+                      href="https://wa.me/+8801722009953"
+                      class="btn btn-primary hover:bg-blue-600 text-sm px-4 py-2 rounded-lg font-semibold text-white"
+                      >Contact Now</a
+                    >
                   </button>
                 </div>
               </div>
@@ -405,7 +404,11 @@
                   <button
                     class="text-xs bg-primary text-white px-3 py-2 rounded"
                   >
-                    <a href="https://wa.me/+8801722009953">Contact Now</a>
+                    <a
+                      href="https://wa.me/+8801722009953"
+                      class="btn btn-primary hover:bg-blue-600 text-sm px-4 py-2 rounded-lg font-semibold text-white"
+                      >Contact Now</a
+                    >
                   </button>
                 </div>
               </div>
@@ -442,7 +445,11 @@
                   <button
                     class="text-xs bg-primary text-white px-3 py-2 rounded"
                   >
-                    <a href="https://wa.me/+8801722009953">Contact Now</a>
+                    <a
+                      href="https://wa.me/+8801722009953"
+                      class="btn btn-primary hover:bg-blue-600 text-sm px-4 py-2 rounded-lg font-semibold text-white"
+                      >Contact Now</a
+                    >
                   </button>
                 </div>
               </div>
@@ -502,20 +509,273 @@
       </div>
     </section>
 
+    <!-- Hotels Slider -->
+    <section class="py-12 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between">
+          <h2 class="text-3xl font-bold text-left mb-4 mb-10">
+            Best Hotels for Your Next Trip
+          </h2>
+          <a
+            href="./work_visa.html"
+            class="btn btn-primary hover:bg-blue-600 text-lg px-4 py-2 rounded-lg font-semibold text-white mb-6"
+            >Book Hotel
+          </a>
+        </div>
+        <hr class="mb-6 border-t-2 border-blue-200" />
+        <div class="relative">
+          <div
+            id="hotels-slider"
+            class="slider flex overflow-x-auto gap-6 pb-4 scrollbar-hide scroll-smooth px-2"
+          >
+            <div
+              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Sayeman Beach Resort</h3>
+                <p class="text-gray-600 mb-4">Cox's Bazar, Bangladesh</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">$145 / night</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Saagull Hotels Ltd.</h3>
+                <p class="text-gray-600 mb-4">Dhaka, Bangladesh</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">$173 / night</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Best Western Heritage</h3>
+                <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">$178 / night</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Grand Sultan Tea Resort</h3>
+                <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">$172 / night</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            id="hotel-prev"
+            class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
+          >
+            <i class="fas fa-chevron-left text-gray-700"></i>
+          </button>
+          <button
+            id="hotel-next"
+            class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
+          >
+            <i class="fas fa-chevron-right text-gray-700"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Popular Destinations Slider -->
+    <section class="py-12 bg-green-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-left mb-8">
+          Most Popular Destinations
+        </h2>
+
+        <div class="relative">
+          <div
+            id="destinations-slider"
+            class="slider flex overflow-x-auto gap-6 pb-4 scrollbar-hide scroll-smooth px-2"
+          >
+            <div
+              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Singapore</h3>
+                <p class="text-gray-600 mb-4">3 Days, 2 Nights</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From ৳ 31,250</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Dubai</h3>
+                <p class="text-gray-600 mb-4">4 Days, 3 Nights</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From ৳ 42,600</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('./public/images/cover/leon-macapagal-e_xjeaSMgpI-unsplash.jpg');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Kathmandu</h3>
+                <p class="text-gray-600 mb-4">5 Days, 4 Nights</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">TBA</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
+            >
+              <div
+                class="h-48 bg-cover bg-center"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+                "
+              ></div>
+              <div class="p-6">
+                <h3 class="font-bold text-xl mb-2">Riyadh</h3>
+                <p class="text-gray-600 mb-4">6 Days, 5 Nights</p>
+                <div class="flex justify-between items-center">
+                  <span class="text-primary font-bold">From ৳ 47,200</span>
+                  <button
+                    class="text-xs bg-primary text-white px-3 py-1 rounded"
+                  >
+                    Details
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            id="dest-prev"
+            class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
+          >
+            <i class="fas fa-chevron-left text-gray-700"></i>
+          </button>
+          <button
+            id="dest-next"
+            class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
+          >
+            <i class="fas fa-chevron-right text-gray-700"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
     <!-- Top Airlines -->
     <section class="py-12 bg-white">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-4">
-          <div class="flex items-center justify-center">
+        <div class="flex text- inline justify-between">
+          <div>
+            <h2 class="text-3xl font-bold text-center mb-4">
+              <span class="text-3xl font-bold text-left mb-4"
+                >Book Your Flight With Us!</span
+              >
+            </h2>
+          </div>
+          <div class="flex row inline items-center">
             <button
               id="airline-prev"
               class="mr-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
             >
               <i class="fas fa-chevron-left text-gray-700"></i>
             </button>
-            <span class="text-3xl font-bold text-center mb-4"
-              >Book Your Flight With Us!</span
-            >
+            <button class="text-xs bg-primary text-white px-3 py-2 rounded">
+              <a
+                href="./flight.html"
+                class="btn btn-primary hover:bg-blue-600 text-sm px-4 py-2 mr-2 rounded font-semibold text-white"
+                >Book Now</a
+              >
+            </button>
+
             <button
               id="airline-next"
               class="ml-4 bg-gray-100 hover:bg-blue-200 rounded-full w-8 h-8 flex items-center justify-center"
@@ -523,12 +783,9 @@
               <i class="fas fa-chevron-right text-gray-700"></i>
             </button>
           </div>
-        </h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
-          Taylagari's user-friendly platform connects you to top airlines
-          instantly. Enjoy a comfortable and hassle-free journey on any
-          destination and get tickets of top airlines easily.
-        </p>
+        </div>
+
+        <hr class="mb-6 border-t-2 border-blue-200" />
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 airline-grid">
           <div
             class="bg-none rounded-lg p-2 flex justify-center items-center h-32"
@@ -678,263 +935,16 @@
       </div>
     </section>
 
-    <!-- Popular Destinations Slider -->
-    <section class="py-12 bg-green-100">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">
-          Most Popular Destinations
-        </h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
-          Expand your travel horizons with new facets! Explore the world by
-          choosing your ideal travel destinations in Asia, Europe, America,
-          Australia and more with Taylagari.
-        </p>
-        <div class="relative">
-          <div
-            id="destinations-slider"
-            class="slider flex overflow-x-auto gap-6 pb-4 scrollbar-hide scroll-smooth px-2"
-          >
-            <div
-              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1525625293386-3f8f99389edd?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Singapore</h3>
-                <p class="text-gray-600 mb-4">3 Days, 2 Nights</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">From ৳ 31,250</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Dubai</h3>
-                <p class="text-gray-600 mb-4">4 Days, 3 Nights</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">From ৳ 42,600</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('./public/images/cover/leon-macapagal-e_xjeaSMgpI-unsplash.jpg');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Kathmandu</h3>
-                <p class="text-gray-600 mb-4">5 Days, 4 Nights</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">TBA</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="destination-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Riyadh</h3>
-                <p class="text-gray-600 mb-4">6 Days, 5 Nights</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">From ৳ 47,200</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Details
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            id="dest-prev"
-            class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
-          >
-            <i class="fas fa-chevron-left text-gray-700"></i>
-          </button>
-          <button
-            id="dest-next"
-            class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
-          >
-            <i class="fas fa-chevron-right text-gray-700"></i>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Hotels Slider -->
-    <section class="py-12 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">
-          Best Hotels for Your Next Trip
-        </h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
-          Luxurious or budget-friendly hotels, villas or resorts, browse
-          accommodations at Taylagari that meet the need. Book Long-term or
-          short-term accommodation from our hotel deals
-        </p>
-        <div class="relative">
-          <div
-            id="hotels-slider"
-            class="slider flex overflow-x-auto gap-6 pb-4 scrollbar-hide scroll-smooth px-2"
-          >
-            <div
-              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Sayeman Beach Resort</h3>
-                <p class="text-gray-600 mb-4">Cox's Bazar, Bangladesh</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">$145 / night</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1564501049412-61c2a3083791?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Saagull Hotels Ltd.</h3>
-                <p class="text-gray-600 mb-4">Dhaka, Bangladesh</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">$173 / night</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Best Western Heritage</h3>
-                <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">$178 / night</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="hotel-card flex-shrink-0 w-80 bg-white rounded-lg overflow-hidden shadow-md"
-            >
-              <div
-                class="h-48 bg-cover bg-center"
-                style="
-                  background-image: url('https://images.unsplash.com/photo-1586375300773-8384e3e4916f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
-                "
-              ></div>
-              <div class="p-6">
-                <h3 class="font-bold text-xl mb-2">Grand Sultan Tea Resort</h3>
-                <p class="text-gray-600 mb-4">Sylhet, Bangladesh</p>
-                <div class="flex justify-between items-center">
-                  <span class="text-primary font-bold">$172 / night</span>
-                  <button
-                    class="text-xs bg-primary text-white px-3 py-1 rounded"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button
-            id="hotel-prev"
-            class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
-          >
-            <i class="fas fa-chevron-left text-gray-700"></i>
-          </button>
-          <button
-            id="hotel-next"
-            class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-md w-8 h-8 rounded-full flex items-center justify-center z-10"
-          >
-            <i class="fas fa-chevron-right text-gray-700"></i>
-          </button>
-        </div>
-      </div>
-    </section>
-
     <!-- Bottom Section -->
     <section
-      class="py-16 bg-opacity-30"
-      style="
-        background-image: url('./public/images/cover/leon-macapagal-e_xjeaSMgpI-unsplash.jpg');
-        background-size: cover;
-        background-position: center;
-      "
+      class="py-16 bg-opacity-30 bg-gradient-to-br from-sky-500 to-emerald-500 text-center"
     >
       <div class="container mx-auto px-4 items-center">
         <h2 class="text-4xl text-white items-center font-bold mb-6">
-          Start Exploring the World with Us!
+          Book Flight, Hotel, Holiday & Visa All In One Place
         </h2>
         <button
-          class="bg-accent hover:bg-orange-600 px-6 py-3 rounded-lg font-semibold text-white"
+          class="inline-block bg-white text-emerald-600 font-bold px-8 py-3 rounded-full shadow-lg hover:bg-blue-600 hover:text-white transition duration-300"
         >
           Get Started
         </button>
