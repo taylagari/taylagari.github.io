@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>International Airports with Flags</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      header {
+        background: linear-gradient(to right, #2c3e50, #4a6491);
+        color: white;
+        padding: 25px 30px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      h1 i {
+        color: #4fc3f7;
+      }
+
+      .subtitle {
+        font-weight: 300;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .search-container {
+        padding: 25px;
+        position: relative;
+      }
+
+      .search-box {
+        position: relative;
+      }
+
+      .search-input {
+        width: 100%;
+        padding: 16px 20px 16px 50px;
+        border: 2px solid #e0e0e0;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .search-input:focus {
+        border-color: #4a6491;
+        box-shadow: 0 0 0 3px rgba(74, 100, 145, 0.2);
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #757575;
+        font-size: 1.3rem;
+      }
+
+      .dropdown {
+        max-height: 400px;
+        overflow-y: auto;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        display: none;
+        background: white;
+        border: 1px solid #e0e0e0;
+      }
+
+      .dropdown.active {
+        display: block;
+      }
+
+      .airport-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .airport-item:last-child {
+        border-bottom: none;
+      }
+
+      .airport-item:hover {
+        background-color: #f8f9ff;
+      }
+
+      .flag {
+        width: 32px;
+        height: 24px;
+        border-radius: 3px;
+        margin-right: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+      }
+
+      .airport-info {
+        flex: 1;
+      }
+
+      .airport-name {
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 4px;
+      }
+
+      .airport-code {
+        font-size: 0.85rem;
+        color: #757575;
+        margin-right: 10px;
+      }
+
+      .country {
+        font-size: 0.9rem;
+        color: #4a6491;
+      }
+
+      .no-results {
+        padding: 20px;
+        text-align: center;
+        color: #757575;
+        font-style: italic;
+      }
+
+      .instructions {
+        padding: 0 25px 25px;
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .instructions p {
+        margin-bottom: 10px;
+      }
+
+      .highlight {
+        background-color: #e3f2fd;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+
+      /* Scrollbar styling */
+      .dropdown::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .dropdown::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .dropdown::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 10px;
+      }
+
+      .dropdown::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+
+        .search-input {
+          padding: 14px 18px 14px 45px;
+          font-size: 1rem;
+        }
+
+        .flag {
+          width: 28px;
+          height: 20px;
+          margin-right: 12px;
+        }
+
+        .airport-name {
+          font-size: 0.95rem;
+        }
+
+        .country {
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1><i class="fas fa-globe-americas"></i> International Airports</h1>
+        <p class="subtitle">Find airports worldwide with country flags</p>
+      </header>
+
+      <div class="search-container">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            class="search-input"
+            id="airportSearch"
+            placeholder="Search for an airport or country..."
+          />
+        </div>
+        <div class="dropdown" id="airportDropdown">
+          <!-- Airport items will be populated here -->
+        </div>
+      </div>
+
+      <div class="instructions">
+        <p>
+          <span class="highlight">Tip:</span> Start typing an airport name
+          (e.g., "Heathrow"), city (e.g., "Paris"), or country (e.g., "Japan")
+          to see matching results.
+        </p>
+        <p>
+          Each result shows the airport name, IATA code, and country with its
+          flag.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Sample data of international airports with country codes
+      const airports = [
+        {
+          name: "Hartsfield-Jackson Atlanta International Airport",
+          code: "ATL",
+          country: "United States",
+          countryCode: "US",
+        },
+        {
+          name: "Beijing Capital International Airport",
+          code: "PEK",
+          country: "China",
+          countryCode: "CN",
+        },
+        {
+          name: "Dubai International Airport",
+          code: "DXB",
+          country: "United Arab Emirates",
+          countryCode: "AE",
+        },
+        {
+          name: "Los Angeles International Airport",
+          code: "LAX",
+          country: "United States",
+          countryCode: "US",
+        },
+        {
+          name: "Tokyo Haneda Airport",
+          code: "HND",
+          country: "Japan",
+          countryCode: "JP",
+        },
+        {
+          name: "London Heathrow Airport",
+          code: "LHR",
+          country: "United Kingdom",
+          countryCode: "GB",
+        },
+        {
+          name: "Paris Charles de Gaulle Airport",
+          code: "CDG",
+          country: "France",
+          countryCode: "FR",
+        },
+        {
+          name: "Amsterdam Airport Schiphol",
+          code: "AMS",
+          country: "Netherlands",
+          countryCode: "NL",
+        },
+        {
+          name: "Frankfurt Airport",
+          code: "FRA",
+          country: "Germany",
+          countryCode: "DE",
+        },
+        {
+          name: "Istanbul Airport",
+          code: "IST",
+          country: "Turkey",
+          countryCode: "TR",
+        },
+        {
+          name: "Singapore Changi Airport",
+          code: "SIN",
+          country: "Singapore",
+          countryCode: "SG",
+        },
+        {
+          name: "Sydney Kingsford Smith Airport",
+          code: "SYD",
+          country: "Australia",
+          countryCode: "AU",
+        },
+        {
+          name: "Toronto Pearson International Airport",
+          code: "YYZ",
+          country: "Canada",
+          countryCode: "CA",
+        },
+        {
+          name: "São Paulo–Guarulhos International Airport",
+          code: "GRU",
+          country: "Brazil",
+          countryCode: "BR",
+        },
+        {
+          name: "Mexico City International Airport",
+          code: "MEX",
+          country: "Mexico",
+          countryCode: "MX",
+        },
+        {
+          name: "Incheon International Airport",
+          code: "ICN",
+          country: "South Korea",
+          countryCode: "KR",
+        },
+        {
+          name: "Madrid–Barajas Airport",
+          code: "MAD",
+          country: "Spain",
+          countryCode: "ES",
+        },
+        {
+          name: "Rome Fiumicino Airport",
+          code: "FCO",
+          country: "Italy",
+          countryCode: "IT",
+        },
+        {
+          name: "Munich Airport",
+          code: "MUC",
+          country: "Germany",
+          countryCode: "DE",
+        },
+        {
+          name: "Vancouver International Airport",
+          code: "YVR",
+          country: "Canada",
+          countryCode: "CA",
+        },
+        {
+          name: "Bangkok Suvarnabhumi Airport",
+          code: "BKK",
+          country: "Thailand",
+          countryCode: "TH",
+        },
+        {
+          name: "Johannesburg O.R. Tambo International Airport",
+          code: "JNB",
+          country: "South Africa",
+          countryCode: "ZA",
+        },
+        {
+          name: "Cairo International Airport",
+          code: "CAI",
+          country: "Egypt",
+          countryCode: "EG",
+        },
+        {
+          name: "New Delhi Indira Gandhi International Airport",
+          code: "DEL",
+          country: "India",
+          countryCode: "IN",
+        },
+        {
+          name: "Moscow Sheremetyevo International Airport",
+          code: "SVO",
+          country: "Russia",
+          countryCode: "RU",
+        },
+      ];
+
+      // Function to generate flag emoji from country code
+      function getFlagEmoji(countryCode) {
+        const codePoints = countryCode
+          .toUpperCase()
+          .split("")
+          .map((char) => 127397 + char.charCodeAt());
+        return String.fromCodePoint(...codePoints);
+      }
+
+      // Function to create airport item HTML
+      function createAirportItem(airport) {
+        return `
+                <div class="airport-item" data-code="${airport.code}">
+                    <div class="flag">${getFlagEmoji(airport.countryCode)}</div>
+                    <div class="airport-info">
+                        <div class="airport-name">${airport.name}</div>
+                        <div>
+                            <span class="airport-code">${airport.code}</span>
+                            <span class="country">${airport.country}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
+
+      // Function to filter and display airports
+      function displayAirports(filteredAirports) {
+        const dropdown = document.getElementById("airportDropdown");
+
+        if (filteredAirports.length === 0) {
+          dropdown.innerHTML =
+            '<div class="no-results">No airports found</div>';
+        } else {
+          dropdown.innerHTML = filteredAirports.map(createAirportItem).join("");
+        }
+
+        dropdown.classList.add("active");
+      }
+
+      // Function to filter airports based on search term
+      function filterAirports(searchTerm) {
+        if (!searchTerm.trim()) {
+          return airports.slice(0, 10); // Show first 10 airports if no search term
+        }
+
+        const term = searchTerm.toLowerCase();
+        return airports.filter(
+          (airport) =>
+            airport.name.toLowerCase().includes(term) ||
+            airport.code.toLowerCase().includes(term) ||
+            airport.country.toLowerCase().includes(term)
+        );
+      }
+
+      // Event listeners
+      document
+        .getElementById("airportSearch")
+        .addEventListener("input", function (e) {
+          const searchTerm = e.target.value;
+          const filtered = filterAirports(searchTerm);
+          displayAirports(filtered);
+        });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function (e) {
+        const searchBox = document.querySelector(".search-container");
+        if (!searchBox.contains(e.target)) {
+          document.getElementById("airportDropdown").classList.remove("active");
+        }
+      });
+
+      // Handle airport selection
+      document
+        .getElementById("airportDropdown")
+        .addEventListener("click", function (e) {
+          if (e.target.closest(".airport-item")) {
+            const selectedItem = e.target.closest(".airport-item");
+            const airportCode = selectedItem.getAttribute("data-code");
+            const airportName =
+              selectedItem.querySelector(".airport-name").textContent;
+
+            // Update search input with selected airport
+            document.getElementById(
+              "airportSearch"
+            ).value = `${airportName} (${airportCode})`;
+
+            // Hide dropdown
+            document
+              .getElementById("airportDropdown")
+              .classList.remove("active");
+
+            // In a real application, you would do something with the selected airport
+            console.log(`Selected airport: ${airportName} (${airportCode})`);
+          }
+        });
+
+      // Initialize with first 10 airports
+      displayAirports(airports.slice(0, 10));
+    </script>
+  </body>
+</html>
