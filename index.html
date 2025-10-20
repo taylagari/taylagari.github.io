@@ -10,6 +10,36 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="./public/styles/brand.css" />
+    <style>
+      .video-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+      @media (max-width: 768px) {
+        .video-container {
+          display: none;
+        }
+        .mobile-bg {
+          display: block !important;
+        }
+      }
+      .mobile-bg {
+        display: none;
+        background: linear-gradient(to bottom, #134eb7, #173686) center/cover
+          no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+    </style>
   </head>
   <body class="font-sans bg-gray-50">
     <!-- Header -->
@@ -161,12 +191,161 @@
         >
       </div>
     </header>
+    <!-- Hero Section -->
+    <section class="relative min-h-[600px] flex items-center pt-32 py-8 px-4">
+      <!-- Video Background (Desktop) -->
+      <div class="video-container">
+        <video class="video-bg" autoplay muted loop playsinline>
+          <source src="./public/video/airpalanetakeoff.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
+      <!-- Fallback Background (Mobile) -->
+      <div class="mobile-bg"></div>
+
+      <!-- Overlay for readability -->
+      <div class="overlay"></div>
+
+      <div class="max-w-6xl mx-auto w-full relative z-10">
+        <!-- Hero Headline -->
+        <div class="text-center mb-8">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3"
+          >
+            Fly Smarter, Not Harder
+          </h1>
+          <p class="text-sm md:text-base max-w-2xl mx-auto text-blue-100">
+            Real-time flight comparisons across 700+ airlines. Best price
+            guaranteed.
+          </p>
+        </div>
+
+        <!-- Flight Search Form -->
+        <div
+          class="bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-4 md:p-6 border border-white/20"
+        >
+          <form
+            id="flightForm"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-3"
+          >
+            <!-- Trip Type -->
+            <div
+              class="lg:col-span-6 flex justify-center space-x-2 mb-3 md:mb-0"
+            >
+              <button
+                type="button"
+                data-trip="round"
+                class="trip-btn px-3 py-2 text-sm font-medium rounded-lg bg-blue-600 text-white"
+              >
+                Round Trip
+              </button>
+              <button
+                type="button"
+                data-trip="one-way"
+                class="trip-btn px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100"
+              >
+                One Way
+              </button>
+              <button
+                type="button"
+                data-trip="multi"
+                class="trip-btn px-3 py-2 text-sm font-medium rounded-lg text-gray-600 hover:bg-gray-100"
+              >
+                Multi-City
+              </button>
+            </div>
+
+            <!-- From -->
+            <div class="space-y-1">
+              <label class="block text-xs font-semibold text-gray-700"
+                >From</label
+              >
+              <div class="relative">
+                <i
+                  class="fas fa-plane-departure absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"
+                ></i>
+                <input
+                  type="text"
+                  placeholder="City or airport"
+                  class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- To -->
+            <div class="space-y-1">
+              <label class="block text-xs font-semibold text-gray-700"
+                >To</label
+              >
+              <div class="relative">
+                <i
+                  class="fas fa-plane-arrival absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"
+                ></i>
+                <input
+                  type="text"
+                  placeholder="City or airport"
+                  class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+              </div>
+            </div>
+
+            <!-- Departure -->
+            <div class="space-y-1">
+              <label class="block text-xs font-semibold text-gray-700"
+                >Departure</label
+              >
+              <input
+                type="date"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <!-- Return -->
+            <div id="returnField" class="space-y-1">
+              <label class="block text-xs font-semibold text-gray-700"
+                >Return</label
+              >
+              <input
+                type="date"
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              />
+            </div>
+
+            <!-- Passengers -->
+            <div class="space-y-1">
+              <label class="block text-xs font-semibold text-gray-700"
+                >Passengers</label
+              >
+              <select
+                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+              >
+                <option>1 Passenger</option>
+                <option>2 Passengers</option>
+                <option>3 Passengers</option>
+                <option>4+ Passengers</option>
+              </select>
+            </div>
+
+            <!-- Search Button -->
+            <div class="flex items-end">
+              <button
+                type="submit"
+                class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center"
+              >
+                <i class="fas fa-search mr-2"></i>
+                Search Flights
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
     <!-- Modern Hero Slider -->
-    <section
+    <!-- <section
       class="bg-gradient-to-br from-blue-600 to-indigo-800 relative h-[520px] overflow-hidden flex lg:pt-20"
     >
-      <!-- Slider Area (80%) -->
+
       <div class="w-full lg:w-[80%] h-full relative">
         <div
           id="hero-slider"
@@ -226,7 +405,7 @@
           ></button>
         </div>
       </div>
-      <!-- Static Info Area (20%) -->
+  
       <div class="hidden lg:block w-[20%] h-full relative">
         <div
           class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-8"
@@ -267,7 +446,7 @@
           >
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Work Visa Slider -->
     <section class="py-12 bg-green-100">
