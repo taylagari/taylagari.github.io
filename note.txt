@@ -1,7 +1,113 @@
   #2f3048 //Logo Bg color
   #3f91bf // Text Color
   
+  <!-- Modern Hero Slider -->
+    <!-- <section
+      class="bg-gradient-to-br from-blue-600 to-indigo-800 relative h-[520px] overflow-hidden flex lg:pt-20"
+    >
+
+      <div class="w-full lg:w-[80%] h-full relative">
+        <div
+          id="hero-slider"
+          class="slider h-full flex transition-transform duration-500 ease-in-out"
+        >
+          <div
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
+          >
+            <img
+              src="/public/images/cover/visa/agriculture_Work_visa.jpg"
+              alt="Agriculture Work Visa"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
+          >
+            <img
+              src="./public/images/cover/visa/Slide.jpg"
+              alt="Visa Slide"
+              class="h-full w-full object-contain"
+            />
+          </div>
+          <div
+            class="min-w-full h-full flex items-center justify-center bg-black bg-opacity-30"
+          >
+            <img
+              src="./public/images/cover/visa/Portugal_Construction_Worker.jpg"
+              alt="Visa Slide 2"
+              class="h-full w-full object-contain"
+            />
+          </div>
+        </div>
+        <button
+          id="hero-prev"
+          class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-opacity-100"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button
+          id="hero-next"
+          class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-70 text-gray-800 w-10 h-10 rounded-full flex items-center justify-center z-10 hover:bg-opacity-100"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div
+          class="absolute bottom-6 left-0 right-0 flex justify-center space-x-2 z-10"
+        >
+          <button
+            class="hero-indicator w-3 h-3 rounded-full bg-white bg-opacity-60"
+          ></button>
+          <button
+            class="hero-indicator w-3 h-3 rounded-full bg-white bg-opacity-60"
+          ></button>
+          <button
+            class="hero-indicator w-3 h-3 rounded-full bg-white bg-opacity-60"
+          ></button>
+        </div>
+      </div>
   
+      <div class="hidden lg:block w-[20%] h-full relative">
+        <div
+          class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center px-8"
+        >
+          <a
+            href="/flight.html"
+            class="btn btn-primary hover:bg-blue-600 text-sm text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center space-x-2 px-4 py-2 hover:shadow-lg transition duration-300"
+          >
+            Book Flight</a
+          >
+          <br />
+          <a
+            href="./work_visa.html"
+            class="btn btn-primary hover:bg-blue-600 text-sm text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center space-x-2 px-4 py-2 hover:shadow-lg transition duration-300"
+          >
+            Work Visa</a
+          >
+          <br />
+          <a
+            href="./indian_visa.html"
+            class="btn btn-primary hover:bg-blue-600 text-sm text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center space-x-2 px-4 py-2 hover:shadow-lg transition duration-300"
+          >
+            Indian Visa</a
+          >
+          <br />
+          <a
+            href="./hotel.html"
+            class="btn btn-primary hover:bg-blue-600 text-sm text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center space-x-2 px-4 py-2 hover:shadow-lg transition duration-300"
+          >
+            Hotel Booking</a
+          >
+          <br />
+          <a
+            href="./tour.html"
+            class="btn btn-primary hover:bg-blue-600 text-sm text-white font-semibold px-6 py-3 rounded-lg inline-flex items-center space-x-2 px-4 py-2 hover:shadow-lg transition duration-300"
+          >
+            Tour Packages</a
+          >
+        </div>
+      </div>
+    </section> -->
+
   <section class="py-12 bg-white">
       <div class="container mx-auto px-4">
         <h2 class="text-3xl font-bold text-center mb-4">
